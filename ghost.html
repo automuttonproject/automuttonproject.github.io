@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>myghost</title>
+  <style>
+    @font-face {
+      font-family: 'KazukiReiwa';
+      src: url('./KazukiReiwa - Light.ttf') format('truetype');
+      font-weight: 300;
+    }
+    @font-face {
+      font-family: 'KazukiReiwa';
+      src: url('./KazukiReiwa - Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'KazukiReiwa';
+      src: url('./KazukiReiwa - Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fff;
+      color: #111;
+      font-family: 'KazukiReiwa', serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: clamp(60px, 10vw, 120px) 24px clamp(40px, 6vw, 80px);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .site-title {
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: 0.35em;
+    }
+
+    .tracks {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+    }
+
+    .track {
+      padding: 64px 0;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    .track:last-child {
+      border-bottom: none;
+    }
+
+    .track-number {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: #bbb;
+      margin-bottom: 10px;
+    }
+
+    .track-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      margin-bottom: 28px;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .poem {
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      line-height: 2.4;
+      letter-spacing: 0.06em;
+      white-space: pre-line;
+    }
+
+    .credits {
+      margin-top: 36px;
+      font-size: 0.72rem;
+      color: #c0c0c0;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 520px) {
+      .tracks { padding: 0 20px 80px; }
+      .track { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="site-title">myghost</h1>
+  </header>
+
+  <div class="tracks">
+
+    <div class="track">
+      <div class="track-number">01</div>
+      <h2 class="track-title">幽霊</h2>
+      <audio controls src="./data/01_幽霊.mp3"></audio>
+      <div class="poem">かつて雑踏とは
+孤独のためではなかったか
+目的不明の集合体本無意識
+の中の
+記憶のない足つきの幽霊
+
+盆には帰ると嘘ばかり
+夜の幽霊なんてみんなにせものなの
+朝にしかいないの　朝の
+誰にもなれない　まぶしい光の
+昔の　とうめいになるすこしまえの
+遠くへいくものへ　さよならとあいさつする前の
+長い髪たなびかせた誰かの正体見たり
+正体見たり
+雑踏には幽霊ばかりです
+朝なんかは、特に</div>
+      <div class="credits">reading : VOICEVOX [ナースロボ＿タイプT]</div>
+    </div>
+
+    <div class="track">
+      <div class="track-number">02</div>
+      <h2 class="track-title">ブルー</h2>
+      <audio controls src="./data/02_ブルー.mp3"></audio>
+      <div class="poem">生きることは損なうことでした
+熱風がアスファルトを揺らして影が立つ
+花の匂いなんてしませんでした
+張り巡らされた青い空に白い雲ひとつ撃ち抜いて
+わたしは立っていました
+あなたの手を離した
+
+蝉の鳴らない夏が空梅雨を通り過ぎていく
+あなたはまだあの廊下を歩いていた
+名前のない生徒　名前のない作品　回廊は長く
+ひとたび音が途絶えた後はもはや騒音で
+わたしはあなたから引き剥がされるわたしを
+その時はじめて哀れんだ
+
+損なうたびに美しくされていく
+わたしのかけがえのなかったはずのあなたが
+わたしの面影のないあなたになっていく
+塗り替えた青に気が付いただろうか
+明日には雷鳴が響くだろう　折り重なって夏が来たのだから</div>
+      <div class="credits">reading : VOICEVOX [ナースロボ＿タイプT]　chorus : VOICEPEAK [女性3]</div>
+    </div>
+
+    <div class="track">
+      <div class="track-number">03</div>
+      <h2 class="track-title">悲惨</h2>
+      <audio controls src="./data/03_悲惨.mp3"></audio>
+      <div class="poem">果たして僕の人生は悲惨であったか
+悲しく惨たらしいものであったか
+僕は人の生き様など知りもしないが
+自分が哀れまれることだけは知っている
+
+僕の人生に夢はあるか
+僕の人生に失望はあるが
+僕は前を向いているだろうか
+昨日まで信じていた正面が明日になれば奈落かもしれないじゃないか
+
+僕の愛した僕はまだ息をしているか
+とっくのとうにあの雨に流されたのではなかろうか
+真夏の日差しの中に置き去りにしてきた少年時代が
+膝を抱える僕をジッと見つめている
+
+明日僕は夢を見ているか
+昨日の僕の葬式はいつの日か
+今日の僕はもう死んだのだろうか
+夢は夢のまま小鳥についばまれるか
+
+僕は今日にうなされながら　明日も昨日の夢を見る</div>
+      <div class="credits">reading : VOICEPEAK [女性2]</div>
+    </div>
+
+    <div class="track">
+      <div class="track-number">04</div>
+      <h2 class="track-title">都会の雨</h2>
+      <audio controls src="./data/04_都会の雨.mp3"></audio>
+      <div class="poem">ずぶ濡れの犬が吠えている
+野良猫は知らぬ間に姿を消した
+僕は赤い傘一つ差して、社会の一片へと成り下がっている
+
+犬に成りたい　猫に成りたい
+もうどうにも人間にはうんざりしている
+僕はこの人間社会で僕を保つのに疲れている
+
+白いトラックが走り抜けた
+ご婦人がスカートを翻した
+少女らがさざめきながらプラットホームを行く
+その中で僕は何者にもなれずに立ち尽くしている
+
+どうか僕の上に雨を降らせてくれ
+他に何もいらないから
+都会の汚水のような雨で
+どうか僕を綺麗にしてくれ</div>
+      <div class="credits">reading : VOICEPEAK [女性2]</div>
+    </div>
+
+    <div class="track">
+      <div class="track-number">05</div>
+      <h2 class="track-title">居ないわけないだろ</h2>
+      <audio controls src="./data/05_居ないわけないだろ.mp3"></audio>
+      <div class="poem">神さまがいないことを知っている、わたし
+神さまがいたらとっくにわたしはここにはいないの
+とおくに
+わたしに相応しい結末のある、とおいとおい星にいるはずだから
+わたしの輪郭を誰も覚えていない
+そんな世界になっているはずなのだから
+
+神さまがいないこと
+わたしがわたしの輪郭をしらないこと
+一生懸命に組み立てた人間の型に流し込んだ
+削り過ぎてもはや面影もなくなってしまえ
+わたしの輪郭　漠然と間違ったまま
+わかってるの　わかってるよ
+なんとなくわかってるんだ
+うっすら全部が間違っていること
+わたしの輪郭を作ってしまったことが間違いだったと
+
+あなただって知ってるはずだ
+
+神さまどうか目を逸らさないで
+わたしあなたの気まぐれにすらかかれない
+さよならを言う強さもない
+ごめんねを繰り返すことで
+赦されると信じてる
+ばかな人間もどきを
+
+あなたまだ愛してるんだ
+
+あなたまだ愛してるんだ
+天井から床から壁から眺める全ての視線
+あなたまだ赦すんだ
+あなたが赦すから
+わたしに罪がないような気がしてくるんだ
+
+神さま
+
+わたしは</div>
+      <div class="credits">reading : VOICEPEAK [女性3]</div>
+    </div>
+
+    <div class="track">
+      <div class="track-number">06</div>
+      <h2 class="track-title">居ないわけないだろ　<span style="font-size:0.65em;color:#bbb;letter-spacing:0.15em">inst</span></h2>
+      <audio controls src="./data/06_居ないわけないだろ(inst).mp3"></audio>
+    </div>
+
+  </div>
+
+</body>
+</html>
