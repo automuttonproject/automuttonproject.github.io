@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>myghost</title>
+  <title>幽霊</title>
   <style>
     @font-face {
       font-family: 'KazukiReiwa';
@@ -79,10 +79,11 @@
     }
 
     .poem {
-      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
-      line-height: 2.4;
-      letter-spacing: 0.06em;
+      font-size: clamp(1rem, 2.8vw, 1.15rem);
+      line-height: 2.8;
+      letter-spacing: 0.08em;
       white-space: pre-line;
+      color: #1a1a1a;
     }
 
     .credits {
@@ -90,6 +91,35 @@
       font-size: 0.72rem;
       color: #c0c0c0;
       letter-spacing: 0.12em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 24px 80px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-credit {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .footer-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: #aaa;
+      text-decoration: none;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: #555;
+      border-color: #999;
     }
 
     @media (max-width: 520px) {
@@ -101,7 +131,7 @@
 <body>
 
   <header>
-    <h1 class="site-title">myghost</h1>
+    <h1 class="site-title">幽霊</h1>
   </header>
 
   <div class="tracks">
@@ -258,6 +288,11 @@
     </div>
 
   </div>
+
+  <footer>
+    <div class="footer-credit">わたしの幽霊　by 花野わかれ</div>
+    <a class="footer-link" href="https://www.youtube.com/@automutton-elilema-1927" target="_blank" rel="noopener">automutton YouTube</a>
+  </footer>
 
 </body>
 </html>
