@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幽霊 — 試聴</title>
+  <link rel="icon" type="image/png" href="./favicon_ghost.png">
+  <style>
+    @font-face {
+      font-family: 'KazukiReiwa';
+      src: url('./KazukiReiwa - Light.ttf') format('truetype');
+      font-weight: 300;
+    }
+    @font-face {
+      font-family: 'KazukiReiwa';
+      src: url('./KazukiReiwa - Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fff;
+      color: #111;
+      font-family: 'KazukiReiwa', serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: 0.4em;
+      margin-bottom: 0.3em;
+    }
+
+    .label {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      color: #bbb;
+      margin-bottom: 2.5rem;
+    }
+
+    audio {
+      display: block;
+      width: clamp(260px, 60vw, 400px);
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 2.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: #bbb;
+      text-decoration: none;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .back:hover {
+      color: #555;
+      border-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>幽霊</h1>
+    <p class="label">試聴</p>
+    <audio controls src="./data/幽霊_試聴.mp3"></audio>
+    <a class="back" href="./ghost.html">全曲を聴く →</a>
+  </div>
+</body>
+</html>
