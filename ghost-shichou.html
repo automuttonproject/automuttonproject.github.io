@@ -16,6 +16,11 @@
       src: url('./KazukiReiwa - Regular.ttf') format('truetype');
       font-weight: 400;
     }
+    @font-face {
+      font-family: 'KazukiReiwa';
+      src: url('./KazukiReiwa - Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -23,17 +28,19 @@
       background: #fff;
       color: #111;
       font-family: 'KazukiReiwa', serif;
-      font-weight: 300;
+      font-weight: 400;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 60px 24px 80px;
     }
 
     .container {
       text-align: center;
-      padding: 2rem;
+      width: 100%;
+      max-width: 520px;
     }
 
     .cd-label {
@@ -41,11 +48,12 @@
       letter-spacing: 0.35em;
       color: #bbb;
       margin-bottom: 0.8em;
+      font-weight: 400;
     }
 
     h1 {
       font-size: clamp(3rem, 12vw, 6rem);
-      font-weight: 300;
+      font-weight: 700;
       letter-spacing: 0.4em;
       margin-bottom: 0.2em;
     }
@@ -55,34 +63,76 @@
       letter-spacing: 0.3em;
       color: #bbb;
       margin-bottom: 2.5rem;
+      font-weight: 400;
     }
 
     audio {
       display: block;
-      width: clamp(260px, 60vw, 400px);
+      width: 100%;
       margin-bottom: 2.5rem;
     }
 
     .desc {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       letter-spacing: 0.12em;
       line-height: 2;
       color: #555;
       margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .tracklist {
+      width: 100%;
+      margin-bottom: 2.5rem;
+      border-top: 1px solid #e8e8e8;
+      padding-top: 1.6rem;
+    }
+
+    .track {
+      display: flex;
+      align-items: baseline;
+      gap: 1.2em;
+      padding: 0.55em 0;
+      border-bottom: 1px solid #f0f0f0;
+      text-align: left;
+    }
+
+    .track-number {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: #bbb;
+      font-weight: 400;
+      flex-shrink: 0;
+      width: 1.8em;
+    }
+
+    .track-title {
+      font-size: clamp(0.95rem, 2.8vw, 1.1rem);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .track-inst {
+      font-size: 0.65em;
+      color: #bbb;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      margin-left: 0.4em;
     }
 
     .event {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 0.15em;
       line-height: 2.2;
       color: #999;
       border-top: 1px solid #e8e8e8;
       padding-top: 1.8rem;
+      font-weight: 400;
     }
 
     .event strong {
-      color: #666;
-      font-weight: 400;
+      color: #555;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -93,6 +143,34 @@
     <p class="label">試聴</p>
     <audio controls src="./data/幽霊_試聴.mp3"></audio>
     <p class="desc">詩集『とおくのブルー』収録の詩のポエトリーリーディングCD</p>
+
+    <div class="tracklist">
+      <div class="track">
+        <span class="track-number">01</span>
+        <span class="track-title">幽霊</span>
+      </div>
+      <div class="track">
+        <span class="track-number">02</span>
+        <span class="track-title">ブルー</span>
+      </div>
+      <div class="track">
+        <span class="track-number">03</span>
+        <span class="track-title">悲惨</span>
+      </div>
+      <div class="track">
+        <span class="track-number">04</span>
+        <span class="track-title">都会の雨</span>
+      </div>
+      <div class="track">
+        <span class="track-number">05</span>
+        <span class="track-title">居ないわけないだろ</span>
+      </div>
+      <div class="track">
+        <span class="track-number">06</span>
+        <span class="track-title">居ないわけないだろ<span class="track-inst">inst</span></span>
+      </div>
+    </div>
+
     <div class="event">
       <strong>2026/5/4（月）文学フリマ東京42</strong><br>
       サークル名：わたしの幽霊<br>
