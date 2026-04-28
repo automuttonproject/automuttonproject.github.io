@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幽霊 — 試聴</title>
+  <link rel="icon" type="image/png" href="./favicon_ghost.png">
+  <style>
+    @font-face {
+      font-family: 'KazukiReiwa';
+      src: url('./KazukiReiwa - Light.ttf') format('truetype');
+      font-weight: 300;
+    }
+    @font-face {
+      font-family: 'KazukiReiwa';
+      src: url('./KazukiReiwa - Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fff;
+      color: #111;
+      font-family: 'KazukiReiwa', serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .cd-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: #bbb;
+      margin-bottom: 0.8em;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 12vw, 6rem);
+      font-weight: 300;
+      letter-spacing: 0.4em;
+      margin-bottom: 0.2em;
+    }
+
+    .label {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: #bbb;
+      margin-bottom: 2.5rem;
+    }
+
+    audio {
+      display: block;
+      width: clamp(260px, 60vw, 400px);
+      margin-bottom: 2.5rem;
+    }
+
+    .desc {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      line-height: 2;
+      color: #555;
+      margin-bottom: 2.5rem;
+    }
+
+    .event {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      line-height: 2.2;
+      color: #999;
+      border-top: 1px solid #e8e8e8;
+      padding-top: 1.8rem;
+    }
+
+    .event strong {
+      color: #666;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="cd-label">CD</p>
+    <h1>幽霊</h1>
+    <p class="label">試聴</p>
+    <audio controls src="./data/幽霊_試聴.mp3"></audio>
+    <p class="desc">詩集『とおくのブルー』収録の詩のポエトリーリーディングCD</p>
+    <div class="event">
+      <strong>2026/5/4（月）文学フリマ東京42</strong><br>
+      サークル名：わたしの幽霊<br>
+      ブース：え-57（南3-4ホール）
+    </div>
+  </div>
+</body>
+</html>
