@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑山羊禁猟区 — 機械羊製造所</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@200;300;400&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="./favicon.png">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --parchment: #0e0c09;
+  --ink: #f0ebe0;
+  --ink-dim: #a09880;
+  --ink-faint: #4a4538;
+  --gold: #c8a84b;
+  --gold-dim: #7a6430;
+  --rule: #2a2520;
+  --rule-gold: rgba(200,168,75,0.25);
+  --red: #8b1a1a;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── Subtle texture overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(139,26,26,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(200,168,75,0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Fine grain ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.wrap { position: relative; z-index: 1; }
+
+/* ── HEADER ── */
+header {
+  text-align: center;
+  padding: clamp(60px,8vw,120px) clamp(24px,6vw,80px) clamp(40px,6vw,80px);
+  border-bottom: 1px solid var(--rule-gold);
+  position: relative;
+}
+
+/* ornamental top rule */
+.ornament-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  opacity: 0.5;
+}
+
+.ornament-line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold));
+}
+
+.ornament-line.rev {
+  background: linear-gradient(to left, transparent, var(--gold));
+}
+
+.ornament-diamond {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+/* back link */
+.back-link {
+  position: absolute;
+  top: clamp(20px,4vw,36px);
+  left: clamp(20px,4vw,48px);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.back-link:hover { color: var(--ink-dim); }
+
+.header-sub {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+  font-size: 9px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Hina Mincho', serif;
+  font-size: clamp(36px,6vw,72px);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.header-ruby {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(12px,1.8vw,18px);
+  letter-spacing: 0.25em;
+  color: var(--ink-dim);
+  margin-bottom: 28px;
+}
+
+.header-tagline {
+  font-family: 'Hina Mincho', serif;
+  font-size: clamp(12px,1.5vw,16px);
+  letter-spacing: 0.18em;
+  color: var(--ink-dim);
+  line-height: 2;
+}
+
+.header-type {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 8px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  border: 1px solid var(--gold-dim);
+  padding: 4px 14px;
+  margin-top: 20px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 clamp(24px,6vw,80px) clamp(60px,8vw,120px);
+}
+
+/* ── SECTION ── */
+.section {
+  padding: clamp(40px,6vw,72px) 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.section:last-child { border-bottom: none; }
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.section-label-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 8px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  white-space: nowrap;
+}
+
+.section-label-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule-gold);
+}
+
+/* ── MEMBERS ── */
+.members-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin-bottom: 32px;
+}
+
+.member-card {
+  background: var(--parchment);
+  padding: clamp(28px,4vw,48px) clamp(24px,3vw,40px);
+}
+
+.member-role-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 7px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 12px;
+}
+
+.member-name {
+  font-family: 'Hina Mincho', serif;
+  font-size: clamp(22px,3vw,36px);
+  letter-spacing: 0.2em;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.member-name-roman {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(11px,1.4vw,15px);
+  letter-spacing: 0.2em;
+  color: var(--ink-dim);
+  margin-bottom: 16px;
+}
+
+.member-desc {
+  font-family: 'Hina Mincho', serif;
+  font-size: clamp(11px,1.3vw,13px);
+  letter-spacing: 0.1em;
+  line-height: 2.2;
+  color: var(--ink-dim);
+}
+
+.member-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-faint);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.member-link:hover { color: var(--ink-dim); border-color: var(--ink-dim); }
+
+/* ── BODY TEXT ── */
+.body-text {
+  font-family: 'Hina Mincho', serif;
+  font-size: clamp(13px,1.5vw,15px);
+  letter-spacing: 0.12em;
+  line-height: 2.4;
+  color: var(--ink-dim);
+}
+
+.body-text strong {
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* ── TAGS ── */
+.tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.tag-item {
+  font-family: 'Hina Mincho', serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+  border: 1px solid var(--rule-gold);
+  padding: 6px 16px;
+}
+
+/* ── LINKS ── */
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ext-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ext-link:last-child { border-bottom: none; }
+.ext-link:hover { color: var(--ink); }
+.ext-link .arrow { color: var(--ink-faint); font-size: 11px; transition: color 0.2s; }
+.ext-link:hover .arrow { color: var(--gold-dim); }
+
+/* ── RULES ── */
+.rules-block {
+  border: 1px solid var(--rule-gold);
+  padding: clamp(20px,3vw,36px) clamp(20px,3vw,40px);
+  position: relative;
+}
+
+.rules-block::before {
+  content: '§';
+  position: absolute;
+  top: -12px;
+  left: clamp(20px,3vw,40px);
+  background: var(--parchment);
+  padding: 0 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--gold-dim);
+}
+
+.rule-section {
+  margin-bottom: 28px;
+}
+.rule-section:last-child { margin-bottom: 0; }
+
+.rule-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 8px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+}
+
+.rule-text {
+  font-family: 'Hina Mincho', serif;
+  font-size: clamp(11px,1.3vw,13px);
+  letter-spacing: 0.1em;
+  line-height: 2.3;
+  color: var(--ink-dim);
+  white-space: pre-line;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--rule-gold);
+  padding: clamp(32px,5vw,56px) clamp(24px,6vw,80px);
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Hina Mincho', serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+
+.footer-en {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+  font-size: 8px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+header { animation: fadeIn 0.9s ease both; }
+.section { animation: fadeIn 0.7s ease both; }
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.28s; }
+.section:nth-child(4) { animation-delay: 0.35s; }
+.section:nth-child(5) { animation-delay: 0.42s; }
+
+@media (max-width: 600px) {
+  .members-grid { grid-template-columns: 1fr; }
+  .member-card:first-child { border-bottom: 1px solid var(--rule); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<header>
+  <a class="back-link" href="./index.html">← 機械羊製造所</a>
+
+  <div class="ornament-top">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-diamond" style="width:4px;height:4px;opacity:0.5"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line rev"></div>
+  </div>
+
+  <p class="header-sub">機械羊製造所 — Sub Member</p>
+  <h1>黑山羊禁猟区</h1>
+  <p class="header-ruby">The Black Goat Sanctuary</p>
+  <p class="header-tagline">ブロッケン山脈の頂で<br>焚火を囲んで踊っています</p>
+  <span class="header-type">Virtual Singer Unit</span>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- MEMBERS -->
+  <section class="section">
+    <div class="section-label">
+      <span class="section-label-text">Members</span>
+      <div class="section-label-line"></div>
+    </div>
+
+    <div class="members-grid">
+      <div class="member-card">
+        <p class="member-role-label">魔女</p>
+        <h2 class="member-name">綺眼羅</h2>
+        <p class="member-name-roman">Chimera</p>
+        <p class="member-desc">人ではない。魔女である。<br>神様にちぎられたところを直したらキメラになった。心臓を銀の杭で打たれても、さん、に、いちで蘇る。</p>
+        <a class="member-link" href="https://twitter.com/_chi_me_ra_mela" target="_blank" rel="noreferrer">
+          X / Twitter ↗
+        </a>
+      </div>
+      <div class="member-card">
+        <p class="member-role-label">魔女が拾った子供</p>
+        <h2 class="member-name">來禍</h2>
+        <p class="member-name-roman">Laika</p>
+        <p class="member-desc">嘗ては人だった。もう人ではない。<br>まだ赤子だった頃に綺眼羅に拾われ、十七歳まで不自由なく育てられる。やがて◻︎◻︎◻︎◻︎により死にかけたところを、綺眼羅の血と骨と肉を与えられたことで永らえた。さん、に、いちでは蘇らない。<br>昔は綺眼羅のことを「先生」と呼んでいた。今でもたまにこの頃の癖が出る。</p>
+        <a class="member-link" href="https://twitter.com/_la_i_ka_lie" target="_blank" rel="noreferrer">
+          X / Twitter ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- intro text -->
+    <div style="text-align:center; padding: 24px 0 0;">
+      <p class="body-text" style="font-style:italic; font-size:clamp(14px,1.8vw,18px); color: var(--ink-dim); letter-spacing:0.2em;">
+        「さん、に、いち。」
+      </p>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section class="section">
+    <div class="section-label">
+      <span class="section-label-text">Links</span>
+      <div class="section-label-line"></div>
+    </div>
+
+    <div class="links-list">
+      <a class="ext-link" href="https://www.youtube.com/@the-black-goat-sanctuary" target="_blank" rel="noreferrer">
+        <span>YouTube — メインチャンネル</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="ext-link" href="https://www.youtube.com/@t-b-GOAT-s" target="_blank" rel="noreferrer">
+        <span>YouTube — サブチャンネル</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="ext-link" href="https://twitter.com/t_b_g_sanctuary" target="_blank" rel="noreferrer">
+        <span>X / Twitter — 公式</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="ext-link" href="https://twitter.com/_chi_me_ra_mela" target="_blank" rel="noreferrer">
+        <span>X / Twitter — 綺眼羅</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="ext-link" href="https://twitter.com/_la_i_ka_lie" target="_blank" rel="noreferrer">
+        <span>X / Twitter — 來禍</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="ext-link" href="https://the-black-goat.fanbox.cc/" target="_blank" rel="noreferrer">
+        <span>FANBOX</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="ext-link" href="https://lit.link/the_black_goat_sanctuary" target="_blank" rel="noreferrer">
+        <span>Lit.link</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="ext-link" href="mailto:automuttonproject@gmail.com">
+        <span>Contact — automuttonproject@gmail.com</span>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- TAGS -->
+  <section class="section">
+    <div class="section-label">
+      <span class="section-label-text">Tags</span>
+      <div class="section-label-line"></div>
+    </div>
+    <p class="body-text" style="margin-bottom:16px;">定期的に巡回しています。</p>
+    <div class="tags-wrap">
+      <div class="tag-item">#黑山羊禁猟区</div>
+      <div class="tag-item" style="color:var(--gold-dim); border-color:var(--gold-dim);">#黑山羊展翅会 — FA</div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section class="section">
+    <div class="section-label">
+      <span class="section-label-text">Rules &amp; Guidelines</span>
+      <div class="section-label-line"></div>
+    </div>
+
+    <div class="rules-block">
+      <div class="rule-section">
+        <p class="rule-title">禁止行為</p>
+        <p class="rule-text">・配信中のゲームのネタバレや過度な指示
+・誹謗中傷
+・関係のない場面で、他の活動者さまのお名前を出すこと
+・他の活動者さまの配信や動画のコメントでわたくしたちの名前を出すこと
+・以上の禁止行為に対して反応すること</p>
+      </div>
+      <div class="rule-section">
+        <p class="rule-title">FA について</p>
+        <p class="rule-text">ジャンルを問わず、さまざまな創作表現を歓迎します。
+「#黑山羊展翅会」タグをつけていただけると覗きにいけるのでうれしいです（任意）。
+公にするのがふさわしくない表現が含まれる場合、ワンクッション等のご配慮をいただけますと幸いです。
+政治や宗教、示威運動、ヘイト行為のための表現としてわたくしたちを利用することはおやめください。</p>
+      </div>
+      <div class="rule-section">
+        <p class="rule-title">動画の切り抜きについて</p>
+        <p class="rule-text">①投稿された動画そのままの転載ではないこと
+②概要欄にチャンネルURLを記載すること
+を条件に許可しています。
+報告は任意ですが、教えていただけると喜びます。</p>
+      </div>
+      <div class="rule-section">
+        <p class="rule-title">お問い合わせについて</p>
+        <p class="rule-text">コラボをはじめとするお仕事のご依頼はメールアドレスまでご連絡をお願いします。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="footer-logo">機械羊製造所</p>
+  <p class="footer-en">Virtual Creator Community</p>
+</footer>
+
+</div>
+</body>
+</html>
